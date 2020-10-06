@@ -1,6 +1,7 @@
 package com.example.accessingdatarest.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(indexes = {@Index(name = "idx_msg_apps", columnList = "message,sending_app,receiving_app")})
@@ -14,8 +15,8 @@ public class Integration {
     private Player sendingApp;
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Player receivingApp;
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Mapper mapper;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Mapper> mapper;
 
     public Long getId() {
         return id;
@@ -49,11 +50,11 @@ public class Integration {
         this.message = message;
     }
 
-    public Mapper getMapper() {
+    public List<Mapper> getMapper() {
         return mapper;
     }
 
-    public void setMapper(Mapper mapper) {
+    public void setMapper(List<Mapper> mapper) {
         this.mapper = mapper;
     }
 

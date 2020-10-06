@@ -9,4 +9,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(path = "integration")
 public interface IntegrationRepository extends PagingAndSortingRepository<Integration, Long> {
     Integration getByMessageAndSendingAppAndReceivingApp(Message message, Player sendingApp, Player receivingApp);
+
 }

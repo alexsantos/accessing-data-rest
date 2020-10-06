@@ -11,6 +11,14 @@ public class Message {
     private String code;
     private String event;
 
+    public Message(String code, String event) {
+        this.code = code;
+        this.event = event;
+    }
+
+    public Message() {
+    }
+
     public long getId() {
         return id;
     }

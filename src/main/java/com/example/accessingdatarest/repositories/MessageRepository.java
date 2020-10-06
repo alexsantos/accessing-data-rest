@@ -6,5 +6,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(path = "message")
 public interface MessageRepository extends PagingAndSortingRepository<Message, Long> {
-
+    Message findByCodeAndEvent(String code, String event);
 }

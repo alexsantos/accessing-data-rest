@@ -7,4 +7,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(path = "player")
 public interface PlayerRepository extends PagingAndSortingRepository<Player, Long> {
 
+    Player findByCode(String code);
+
 }

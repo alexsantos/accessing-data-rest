@@ -14,6 +14,13 @@ public class Player {
     private String code;
     private String display;
 
+    public Player(String code) {
+        this.code = code;
+    }
+
+    public Player() {
+    }
+
     public long getId() {
         return id;
     }
