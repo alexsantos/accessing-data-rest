@@ -2,6 +2,7 @@ package com.example.accessingdatarest.repositories;
 
 import java.util.List;
 
+import com.example.accessingdatarest.domain.Enumerators.Gender;
 import com.example.accessingdatarest.domain.Person;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
@@ -12,6 +13,5 @@ public interface PersonRepository extends PagingAndSortingRepository<Person, Lon
 
     List<Person> findByFirstNameAndLastName(@Param("firstName") String firstName, @Param("lastName") String lastName);
 
-    List<Person> findByGender(@Param("gender") String gender);
-
+    List<Person> findByGender(@Param("gender") Gender gender);
 }
