@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Player Details</title>
+    <!--    <link rel="stylesheet" type="text/css" href="/css/style.css"/>-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1>View Player</h1>
+<a href="/players">Back to Player List</a>
+<br/><br/>
+{{#player}}
+    <table class="pure-table">
+        <tr>
+            <td>ID</td>
+            <td>{{id}}</td>
+        </tr>
+        <tr>
+            <td>Code</td>
+            <td>{{code}}</td>
+        </tr>
+        <tr>
+            <td>Display</td>
+            <td>{{display}}</td>
+        </tr>
+    </table>
+    <br/><br/>
+    {{#allowDelete}}
+        <form action="/users/{{id}}/delete" method="POST">
+            Delete this user? <input type="submit" value="Yes" />
+        </form>
+    {{/allowDelete}}
+    {{^allowDelete}}
+        <div>
+            <a href="/users/{{id}}/edit">Edit</a> |
+            <a href="/users/{{id}}/delete">Delete</a>
+        </div>
+    {{/allowDelete}}
+{{/player}}
+{{#errorMessage}}
+    <div class="error">{{errorMessage}}</div>
+{{/errorMessage}}
+</body>
+</html>

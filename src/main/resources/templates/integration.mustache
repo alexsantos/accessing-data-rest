@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Integration Details</title>
+    <!--    <link rel="stylesheet" type="text/css" href="/css/style.css"/>-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1>View Integration</h1>
+<a href="/integrations">Back to Integration List</a>
+<br/><br/>
+{{#integration}}
+    <table class="pure-table">
+        <tr>
+            <td>ID</td>
+            <td>{{id}}</td>
+        </tr>
+        <tr>
+            <td>Message</td>
+            <td>{{message.code}}</td>
+        </tr>
+        <tr>
+            <td>Sending Application</td>
+            <td>{{sendingApp.code}}</td>
+        </tr>
+        <tr>
+            <td>Receiving Application</td>
+            <td>{{receivingApp.code}}</td>
+        </tr>
+    </table>
+    <table class="pure-table">
+    {{#mapper}}
+        <tr><td>{{this.key}}</td><td>{{this.value}}</td><td>{{this.type}}</td></tr>
+    {{/mapper}}
+    </table>
+    <br/><br/>
+    {{#allowDelete}}
+        <form action="/integrations/{{id}}/delete" method="POST">
+            Delete this integration? <input type="submit" value="Yes" />
+        </form>
+    {{/allowDelete}}
+    {{^allowDelete}}
+        <div>
+            <a href="/integrations/{{id}}/edit">Edit</a> |
+            <a href="/integrations/{{id}}/delete">Delete</a>
+        </div>
+    {{/allowDelete}}
+{{/integration}}
+{{#errorMessage}}
+    <div class="error">{{errorMessage}}</div>
+{{/errorMessage}}
+</body>
+</html>

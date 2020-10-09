@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Player List</title>
+    <!--    <link rel="stylesheet" type="text/css" href="/css/style.css"/>-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1>Player List</h1>
+
+<div>
+    <nobr>
+        <a href="/players/add">Add Player</a> |
+        <a href="/">Back to Index</a>
+    </nobr>
+</div>
+<br/><br/>
+<div>
+    <table class="pure-table">
+        <tr>
+            <th>Id</th>
+            <th>Code</th>
+            <th>Display</th>
+            <th>Edit</th>
+        </tr>
+        {{#players}}
+            <tr>
+                <td><a href="/players/{{id}}">{{id}}</a></td>
+                <td>{{code}}</a></td>
+                <td>{{display}}</a></td>
+                <td><a href="/players/{{id}}/edit">Edit</a></td>
+            </tr>
+        {{/players}}
+    </table>
+</div>
+<br/><br/>
+<div>
+    <nobr>
+        {{#hasPrev}}<a href="/players?page={{prev}}">Prev</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+        {{#hasNext}}<a href="/players?page={{next}}">Next</a>{{/hasNext}}
+    </nobr>
+</div>
+</body>
+</html>
